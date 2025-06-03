@@ -1,13 +1,13 @@
-
 const gallery = document.querySelector(".gallery");
 const imgPreview = document.querySelector(".imgPreview");
 const imgs = document.querySelectorAll(".imgContainer");
 
 let isImgPreviewOpen = false;
 let activeImg = null;
+let activeImgImg = null;
 let activeImgParent = null;
 
-imgs.forEach((img) => {
+imgs.forEach((img, i) => {
     let theImgMask = img.querySelector(".wrap");
     let theImg = img.querySelector("img");
 
@@ -29,11 +29,10 @@ imgs.forEach((img) => {
             },
             onComplete: () => {
                 isImgPreviewOpen = true;
-            }
+            },
         });
     });
 });
-
 
 imgPreview.addEventListener("click", function (e) {
     const activeimgState = Flip.getState([activeImg, activeImgImg]);
@@ -53,29 +52,6 @@ imgPreview.addEventListener("click", function (e) {
         onComplete: () => {
             isImgPreviewOpen = false;
             gsap.set(imgPreview, { autoAlpha: 0 });
-        }
+        },
     });
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
