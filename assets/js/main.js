@@ -9,7 +9,10 @@ let activeImgParent = null;
 
 imgs.forEach((img, i) => {
     let theImgMask = img.querySelector(".wrap");
-    let theImg = img.querySelector("img");
+
+    if (!theImgMask) return;
+
+    const theImg = theImgMask.querySelector("img");
 
     img.addEventListener("click", () => {
         const imgState = Flip.getState([theImgMask, theImg]);
